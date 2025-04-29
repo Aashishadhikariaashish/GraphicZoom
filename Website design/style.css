@@ -1,0 +1,118 @@
+/* style.css */
+
+/* Base styles & background */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: white;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  /* Header layout */
+  header {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+  }
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+  header .header-text h1 {
+    font-size: 3rem;
+    color: #00d8ff;
+    animation: slideIn 1.2s ease;
+    margin: 0;
+  }
+  header .header-text p {
+    margin: 0.5rem 0 0;
+  }
+  
+ /* Logo styling - complete version */
+.logo {
+    width: 8px;            /* Adjust to your preferred size */
+    height: 8px;           /* Should match width for perfect circle */
+    object-fit: cover;       /* Ensures image fills the space */
+    border-radius: 25%;      /* Makes it circular */
+    display: block;          /* Ensures proper rendering */
+  }
+  
+  /* Business card image - improved */
+  .card-image {
+    width: 150px;           /* Adjust as needed */
+    height: 150px;          /* Adjust as needed */
+    object-fit: cover;      /* Ensures image covers the space */
+    border-radius: 50%;     /* Makes it circular */
+    display: block;
+    margin: 1rem auto;
+  }
+  
+  /* Section cards */
+  .section {
+    max-width: 1000px;
+    margin: auto auto 2rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    animation: fadeUp 1.2s ease forwards;
+  }
+  .section h2 {
+    color: #00ffe5;
+    margin-bottom: 0.5rem;
+  }
+  .section ul {
+    padding-left: 20px;
+  }
+  
+  /* Highlights */
+  .highlight {
+    color: #ffcc00;
+    font-weight: bold;
+  }
+  
+  /* Facebook button */
+  .fb-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #3b5998;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+  }
+  .fb-button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+  }
+  
+  @keyframes fadeUp {
+    from { transform: translateY(30px);  opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+  }
+  
+  /*
+    Note:
+    - Make sure you save style.css and hard-refresh your browser (Ctrl+F5) to see updates.
+    - Border-radius controls rounding, width/height control size.
+  */
+  
