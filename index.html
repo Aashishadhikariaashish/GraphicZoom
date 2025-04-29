@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GraphicZoom | Your Creative Design Partner</title>
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #141e30, #243b55, #0f2027);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Tech-inspired Glow Effects */
+    .tech-glow {
+      text-shadow: 0 0 10px rgba(0, 216, 255, 0.7);
+    }
+
+    /* Header with Futuristic Animation */
+    header {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #00d8ff, transparent);
+      animation: headerGlow 3s infinite;
+    }
+
+    @keyframes headerGlow {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    /* Circular Logo with Hover Effect */
+    .logo-container {
+      position: relative;
+      cursor: pointer;
+      transition: all 0.5s ease;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #00d8ff;
+      transition: all 0.5s ease;
+      box-shadow: 0 0 15px rgba(0, 216, 255, 0.5);
+    }
+
+    .logo-container:hover .logo {
+      transform: rotate(15deg) scale(1.1);
+      box-shadow: 0 0 25px rgba(0, 216, 255, 0.8);
+    }
+
+    /* Clickable Business Card with Tech Animation */
+    .card-container {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin: 1rem auto;
+      perspective: 1000px;
+    }
+
+    .card-image {
+      width: 200px;
+      height: 120px;
+      object-fit: cover;
+      border: 1px solid rgba(0, 216, 255, 0.3);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-container:hover .card-image {
+      transform: translateY(-10px) rotateX(10deg);
+      box-shadow: 0 15px 30px rgba(0, 216, 255, 0.4);
+    }
+
+    /* Sections with Futuristic Entry Animation */
+    .section {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      border: 1px solid rgba(0, 216, 255, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: calc(var(--order) * 0.2s);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 216, 255, 0.1), transparent);
+      transition: all 0.6s;
+    }
+
+    .section:hover::after {
+      left: 100%;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Highlight Elements */
+    .highlight {
+      color: #00d8ff;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+    }
+
+    .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #00d8ff;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    .highlight:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Facebook Button with Tech Effect */
+    .fb-button {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, #3b5998, #2d4373);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 0.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+      border: none;
+      font-weight: 500;
+    }
+
+    .fb-button::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        transparent 45%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 55%
+      );
+      transform: rotate(30deg);
+      transition: all 0.5s;
+    }
+
+    .fb-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(59, 89, 152, 0.4);
+    }
+
+    .fb-button:hover::before {
+      left: 100%;
+    }
+
+    /* Footer with Pulsing Effect */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00d8ff, transparent);
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .logo {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .card-image {
+        width: 160px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo-container" onclick="window.location.href='#contact'">
+        <img
+          src="Graphiczoom.png"
+          alt="GraphicZoom Logo"
+          class="logo"
+        />
+      </div>
+      <div class="header-text">
+        <h1 class="tech-glow">GraphicZoom</h1>
+        <p>Your Creative Design Partner</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="section" style="--order: 1">
+    <h2>📌 What We Offer</h2>
+    <div class="card-container" onclick="window.open('Graphiclogo.png', '_blank')">
+      <img
+        src="Graphiclogo.png"
+        alt="Business Card Sample"
+        class="card-image"
+      />
+    </div>
+    <ul>
+      <li>✔️ Identity Card Design</li>
+      <li>✔️ Logo Design</li>
+      <li>✔️ Business Cards, Flyers, and More</li>
+    </ul>
+  </div>
+
+  <div class="section" style="--order: 2">
+    <h2>📍 Location & Delivery</h2>
+    <p>Located at <span class="highlight">Satungal, Kathmandu</span></p>
+    <p>🏠 Home delivery available within <span class="highlight">7 days</span></p>
+  </div>
+
+  <div class="section" style="--order: 3">
+    <h2>💰 Pricing</h2>
+    <p>🔹 Single-side Print: <span class="highlight">Rs. 1.6</span> per piece</p>
+    <p>🔹 Double-side Print: <span class="highlight">Rs. 2.0</span> per piece</p>
+  </div>
+
+  <div class="section" id="contact" style="--order: 4">
+    <h2>📞 Contact Us</h2>
+    <p>Phone: <span class="highlight">9768914420</span></p>
+    <p>Email: <span class="highlight">graphicszoom20@gmail.com</span></p>
+    <a
+      href="https://www.facebook.com/share/p/1B4LosbMGJ/"
+      target="_blank"
+      class="fb-button"
+    >
+      Visit our Facebook Page
+    </a>
+  </div>
+
+  <footer>
+    © 2025 GraphicZoom | Designed with ❤️
+  </footer>
+
+  <script>
+    // Add slight delay to animations for better performance
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.style.animationDelay = section.style.getPropertyValue('--order') * 0.2 + 's';
+      });
+      
+      // Add click effect to logo
+      const logo = document.querySelector('.logo-container');
+      logo.addEventListener('click', function() {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 200);
+      });
+    });
+  </script>
+
+</body>
+</html>
